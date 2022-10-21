@@ -18,64 +18,138 @@
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
 
-    <title>ToDoFny</title>
+    <title>TasksDose</title>
 </head>
 
 <body>
 
     <div class="to-do">
-        <main>
+        <nav class="main_nav">
             <div class="container">
-                <div class="add-tasks card-of-tasks">
-                    <div class="header">
-                        <h5 class="title">To Do <span class="num-of-tasks">3</span></h5>
-                        <button class="add-task-btn"><i class="fa-solid fa-plus"></i></button>
+                <div class="content_left">
+                    <div class="container_left">
+
                     </div>
-                    <div class="body">
-                        <div class="tasks">
-                            <div class="task">
-                                <div class="task-content">
-                                    Hizxasd Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                                    nobis, tempore
-                                    odio id aliquid distinctio incidunt assumenda delectus optio aperiam maiores neque
-                                    minima? Odit possimus earum, in expedita nemo totam
-                                </div>
-                                <div class="task-btns">
-                                    <button class="edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="del"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </div>
-                            <div class="task">
-                                <div class="task-content">
-                                    Hizxasd Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                                    nobis, tempore
-                                    odio id aliquid distinctio incidunt assumenda delectus optio aperiam maiores neque
-                                    minima? Odit possimus earum, in expedita nemo totam
-                                </div>
-                                <div class="task-btns">
-                                    <button class="edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="del"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </div>
-                            <div class="task">
-                                <div class="task-content">
-                                    Hizxasd Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                                    nobis, tempore
-                                    odio id aliquid distinctio incidunt assumenda delectus optio aperiam maiores neque
-                                    minima? Odit possimus earum, in expedita nemo totam
-                                </div>
-                                <div class="task-btns">
-                                    <button class="edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="del"><i class="fa-solid fa-trash"></i></button>
-                                </div>
+                </div>
+                <div class="content_center">
+                    <div class="container_center">
+                        <div class="logo">
+                            <div class="img">
+                                <img class="img-fluid" src="images/tasksdose.svg" alt="">
                             </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="task-on-prog"></div>
-                <div class="task-complated"></div>
+                <div class="content_right"></div>
+
+            </div>
+        </nav>
+        <main class="main">
+            <div class="side-bar d-none">
+                <div class="header-bar">
+                    <div class="personal-info"></div>
+                </div>
+                <div class="body-bar">
+                    <div class="pages">
+                        <nav>
+                            <div class="tasks-page">
+                                <div class="task-page" id="work">
+                                    <a href="#"><span class="icon me-2">&#128187;</span> Work Tasks</a>
+                                </div>
+                                <div class="task-page" id="read">
+                                    <a href="#"><span class="icon me-2">&#128213;</span> Read Tasks</a>
+                                </div>
+                                <div class="task-page" id="home">
+                                    <a href="#"><span class="icon me-2">&#127968;</span> Home Tasks</a>
+                                </div>
+                                <!-- <div class="timer">
+                                    <a href="#">Pomodoro</a>
+                                </div> -->
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <header>
+                    <div class="content_left">
+                        <div class="container_left">
+                            <div class="page-title" contenteditable="true">Work Tasks</div>
+                            <div class="page-desc">
+                                <p>Hi There ! <br> This is your <q> Work Tasks </q> page <br> Have a great day <3 </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_right">
+                        <div class="container_right">
+                            <div class="timer">
+
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="container">
+                    <div class="add-tasks card-of-tasks">
+                        <div class="header-tasks">
+                            <h5 class="title">
+                                To Do &#128195;
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="num-of-tasks">
+                                        <span >3</span>
+                                    </div>
+                                    <button class="add-task-btn" id="addNewTask" data-id="to-do"><i
+                                            class="fa-solid fa-plus"></i></button>
+                                </div>
+                            </h5>
+
+                        </div>
+                        <div class="body-tasks">
+                            <!-- <div class="empty">No Tasks Here !</div> -->
+                            <div class="tasks">
+                                <div class="task" id="task">
+                                    <div class="task-content">
+                                        Play Overwatch
+                                    </div>
+
+                                    <div class="task-btns">
+                                        <button class="edit"><i class="fa-solid fa-eye"></i></button>
+                                        <button class="del" id="deletTask"><i class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <button class="add-task-btn work-task" id="addNewTask" data-id="to-do"><i
+                                        class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-on-prog card-of-tasks">
+                        <div class="header-tasks">
+                            <h5 class="title">Workin On &#128104;&#8205;&#128187;<span class="num-of-tasks">3</span>
+                            </h5>
+                            <button class="add-task-btn work-task" id="addNewTask" data-id="working-on"><i
+                                    class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="body-tasks">
+                            <div class="tasks">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="task-complated card-of-tasks">
+                        <div class="header-tasks">
+                            <h5 class="title">Done &#9989;<span class="num-of-tasks">3</span></h5>
+                            <button class="add-task-btn" id="addNewTask"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="body-tasks">
+                            <div class="tasks">
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
             </div>
         </main>
+        <footer></footer>
+        <div class="close-bg d-none h-100 w-100 bg-dark position-absolute" style="left:0 ; top: 0; opacity: 0.2;"></div>
     </div>
 
     <script src="js/all.min.js"></script>

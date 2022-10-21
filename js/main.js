@@ -1,98 +1,196 @@
-let menuBar = document.querySelector(".bar");
-let menuList = document.querySelector(".menu-mob");
+//? create new task panel
 
-// transBg this to close menu and search bar
+let addNewTaskBtn = document.querySelectorAll("#addNewTask");
+let container = document.querySelector(".container");
+let closeBg = document.querySelector(".close-bg");
+let newTaskPanel;
+let reviewPanel;
+let taskTitle;
+let taskDescrip;
 
-let transBg = document.createElement("div");
-transBg.className = "trans-bg";
-transBg.innerHTML = "";
-document.body.appendChild(transBg);
-transBg.style.display = "none";
-
-menuBar.addEventListener("click", (e) => {
-  menuList.classList.add("menu-mob-show");
-  transBg.style.display = "block";
-});
-transBg.addEventListener("click", (e) => {
-  menuList.classList.remove("menu-mob-show");
-  transBg.style.display = "none";
-});
-
-// search box
-
-let searchBox = document.querySelector(".search-box");
-let searchInput = document.querySelector(".search");
-
-searchBox.addEventListener("click", (e) => {
-  searchInput.classList.add("focused");
-  transBg.style.display = "block";
+addNewTaskBtn.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    if (e.target) {
+      creatTask();
+      newTaskPanel.setAttribute("data-id", e.target.getAttribute("data-id"));
+      console.log( e.target.getAttribute("data-id"));
+    }
+  });
 });
 
-transBg.addEventListener("click", (e) => {
-  searchInput.classList.remove("focused");
-  transBg.style.display = "none";
-});
+function creatTask() {
+  closeBg.classList.add("show");
+  newTaskPanel = document.createElement("div");
+  newTaskPanel.className = "new-task";
+  newTaskPanel.id = "newTaskPanel";
+  newTaskPanel.innerHTML = `  
+  <div class="content">
+    <input type="text" name="" id="taskTitle" placeholder="task title">
+    <textarea name="" id="taskDescrip"></textarea>
 
-// login madal
+    <div class="date">
+      <div class="start_date_box">
+        <label for="startDate">Start Date</label>
+       <input type="date" class="start_date" id="startDate">
+     </div>
 
-let loginModal = document.querySelector("#staticBackdrop");
-let loginTitle = document.querySelector(".login-title");
-let fieldEmail = document.querySelector(".field-email");
-let fieldPhone = document.querySelector(".field-phone");
-let modalFooter = document.querySelector(".modal-footer");
-let countryCodes = document.querySelector(".iti--allow-dropdown ");
-let verificationeMail = document.querySelector(".verification-email");
-let verificationePhone = document.querySelector(".verification-phone");
+     <div class="end_date_box">
+      <label for="startDate">End Date</label>
+      <input type="date" class="end_date">
+    </div>
+   </div>
 
-function showEmail() {
-  loginTitle.classList.add("hide-this");
-  fieldEmail.classList.add("show-this-block");
-  modalFooter.classList.add("hide-this");
+  <!-- timeline -->
+
+  <button class="create-task" id="createNewTaskBtn">Create New Task</button>
+  </div>`;
+
+  container.appendChild(newTaskPanel);
+
+  let createNewTaskBtn = document.querySelector("#createNewTaskBtn");
+  createNewTaskBtn.onclick = addToPage;
 }
 
-function showPhone() {
-  loginTitle.classList.add("hide-this");
-  fieldPhone.classList.add("show-this-block");
-  modalFooter.classList.add("hide-this");
+function closeCreatePanel() {
+  closeBg.classList.remove("show");
+  newTaskPanel.remove();
 }
 
-function showEmailCode() {
-  verificationeMail.classList.add("show-this-flex");
+closeBg.addEventListener("click", () => closeCreatePanel());
+document.addEventListener("keydown", (e) =>
+  e.key === "Escape" ? closeCreatePanel() : false
+);
+
+//? creat new task
+
+let arryTaks = [];
+
+function addTasksToArray(taskTitle, taskDescrip) {
+  const tasks = {
+    id: Date.now(),
+    title: taskTitle,
+    description: taskDescrip,
+  };
+
+  arryTaks.push(tasks);
+  console.log(tasks);
+  console.log(arryTaks);
 }
 
-function showPhoneCode() {
-  verificationePhone.classList.add("show-this-flex");
+let bodyEmpty = document.querySelector(".body-tasks .empty");
+let card1 = document.querySelector(".add-tasks .body-tasks .tasks ");
+let card2 = document.querySelector(".task-on-prog .tasks ");
+
+function addToPage(arryTaks) {
+  taskTitle = document.querySelector("#taskTitle");
+  taskDescrip = document.querySelector("#taskDescrip");
+
+  if (!taskTitle.value == "") {
+    if (newTaskPanel.getAttribute("data-id") === "to-do") {
+      card1.innerHTML += `
+
+                  <div class="task" id="task">
+                    <div class="task-content">
+                        ${taskTitle.value}
+                    </div>
+
+                    <div class="task-btns">
+                        <button class="edit"><i class="fa-solid fa-eye"></i></button>
+                        <button class="del" id="deletTask"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        </div>
+                              `;
+    }
+    if (newTaskPanel.getAttribute("data-id") === "working-on") {
+      card2.innerHTML += `
+
+                  <div class="task" id="task">
+                    <div class="task-content">
+                        ${taskTitle.value}
+                    </div>
+
+                    <div class="task-btns">
+                        <button class="edit"><i class="fa-solid fa-eye"></i></button>
+                        <button class="del" id="deletTask"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        </div>
+                              `;
+    }
+    addTasksToArray(taskTitle.value, taskDescrip.value);
+    deletTaskBtn();
+    reviewTask();
+    closeCreatePanel();
+  }
+
+  // if (!bodyTasks.innerHTML == "") {
+  //   bodyEmpty.innerHTML = "";
+  // }
+
+  // <button class="del"><i class="fa-solid fa-ellipsis-vertical"></i></button>
 }
 
-function restAll() {
-  loginTitle.classList.remove("hide-this");
-  fieldEmail.classList.remove("show-this-block");
-  fieldPhone.classList.remove("show-this-block");
-  modalFooter.classList.remove("hide-this");
-  verificationeMail.classList.remove("show-this-flex");
-  verificationePhone.classList.remove("show-this-flex");
-}
+function deletTaskBtn() {
+  let deletTask = document.querySelectorAll("#deletTask");
 
-// country codes
-
-var input = document.querySelector("#phone");
-window.intlTelInput(input, {
-  initialCountry: "auto",
-  geoIpLookup: function (callback) {
-    $.get("https://ipinfo.io", function () {}, "jsonp").always(function (resp) {
-      var countryCode = resp && resp.country ? resp.country : "us";
-      callback(countryCode);
+  deletTask.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.parentElement.parentElement.remove();
     });
-  },
-  utilsScript: "../../build/js/utils.js", // just for formatting/placeholders etc
-});
+  });
+}
 
-// cetering the kenf collection
+function reviewTask() {
+  let task = document.querySelectorAll(".body-tasks .task-content");
 
-window.addEventListener("load", () => {
-  let scrollElement = document.querySelector(".scroll-bar-center");
-  scrollElement.scrollLeft =
-    (scrollElement.scrollWidth - scrollElement.clientWidth) / 2;
-});
+  task.forEach((review) => {
+    review.addEventListener("click", () => {
+      closeBg.classList.add("show");
+      arryTaks.forEach((taskDev) => {
+        reviewPanel = document.createElement("div");
+        reviewPanel.className = "review-task";
+        reviewPanel.id = "reviewPanel";
+        reviewPanel.innerHTML = `
+        <div class="content">
+          <input type="text" name="" id="taskTitle" placeholder="task title" value="${taskDev.title}" >
+          <textarea name="" id="taskDescrip" >${taskDev.description}</textarea>
 
+          <div class="date">
+            <div class="start_date_box">
+              <label for="startDate">Start Date</label>
+             <input type="date" class="start_date" id="startDate">
+           </div>
 
+           <div class="end_date_box">
+            <label for="startDate">End Date</label>
+            <input type="date" class="end_date">
+          </div>
+         </div>
+
+        <!-- timeline -->
+
+        <button class="save-changes" id="saveChanges">Save Changes</button>
+        </div>`;
+
+        container.appendChild(reviewPanel);
+      });
+    });
+  });
+}
+
+function closeReviewPanel() {
+  closeBg.classList.remove("show");
+  reviewPanel.remove();
+}
+
+closeBg.addEventListener("click", () => closeReviewPanel());
+document.addEventListener("keydown", (e) =>
+  e.key === "Escape" ? closeReviewPanel() : false
+);
+
+// edit function
+
+// function editTask(taskDev) {
+//   // taskTitle = arryTaks[1].title;
+//   taskTitle = taskDev.title;
+
+// }

@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
-  --color-dark: #170055;
+  --color-primary: #8847fd;
+  --color-dark: #22153b;
   --color-light: #eee;
   --color-secondary: #9ba3eb;
-  --color-primary: #646fd4;
   --rounded-primary: 0.3rem;
-  --padding-primary: 0.2rem 0.4rem;
+  --padding-primary: 0.4rem 0.5rem;
+  --padding-secondary: 0.8rem 1.2rem;
   --trans-primary: 0.5s;
 }
 
@@ -28,15 +29,111 @@ ul {
   padding: 0 !important;
 }
 
+a {
+  text-decoration: none;
+}
+
 button {
   border: 0;
   outline: 0;
 }
 
+.show {
+  display: block !important;
+}
+
+/* main_nav */
+
+.main_nav {
+  height: 50px;
+  background-color: var(--color-primary);
+}
+
+.main_nav .container {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_nav .logo .img {
+  width: 8.5rem;
+  margin-bottom: 3px;
+}
+
+.main_nav .logo img {
+  max-width: 100%;
+}
+
+/* side bar  */
+
+.main {
+  display: flex;
+  gap: 20px;
+}
+
+.side-bar {
+  background-color: var(--color-primary);
+  padding: var(--padding-primary);
+  width: 200px;
+  height: 100vh;
+}
+
+.side-bar .pages nav,
+.side-bar .pages .tasks-page {
+  padding: var(--padding-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.side-bar .pages .tasks-page a {
+  color: var(--color-light);
+}
+
+.main-content {
+  margin: 0 auto;
+  flex: 1;
+}
+
+.main-content header {
+  margin: 20px 0;
+}
+
+.main-content header .page-title {
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--color-dark);
+  padding: var(--padding-secondary);
+  letter-spacing: 3.2px;
+}
+
+.main-content header .page-desc {
+  font-weight: 600;
+  font-size: 17px;
+  color: #444;
+  margin: 0 30px 0;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
+}
+
+.main-content .container {
+  position: relative;
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
 .card-of-tasks {
-  /* width: calc(100% / 3); */
   background-color: var(--color-light);
-  padding: 15px 20px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  overflow: auto;
+  /* padding: 15px 20px; */
   border-radius: var(--rounded-primary);
   -webkit-border-radius: var(--rounded-primary);
   -moz-border-radius: var(--rounded-primary);
@@ -44,32 +141,59 @@ button {
   -o-border-radius: var(--rounded-primary);
 }
 
-.header {
+.header-tasks {
   text-align: center;
 }
 
-.header .title {
+.header-tasks .title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 18px;
-  color: var(--color-dark);
+  padding: 15px 15px;
+  color: var(--color-light);
+  background-color: var(--color-primary);
 }
 
-.header .title span {
+.header-tasks .title span {
   background-color: var(--color-dark);
   color: var(--color-light);
   width: 25px;
   height: 25px;
-  padding-top: 2px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+  padding: 3.4px 9px;
+  border-radius: var(--rounded-primary);
+  -webkit-border-radius: var(--rounded-primary);
+  -moz-border-radius: var(--rounded-primary);
+  -ms-border-radius: var(--rounded-primary);
+  -o-border-radius: var(--rounded-primary);
+  font-size: 16px;
 }
 
-.header .add-task-btn {
+.header-tasks .add-task-btn {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+  width: auto;
+  font-size: 16px;
+  border-radius: var(--rounded-primary);
+  -webkit-border-radius: var(--rounded-primary);
+  -moz-border-radius: var(--rounded-primary);
+  -ms-border-radius: var(--rounded-primary);
+  -o-border-radius: var(--rounded-primary);
+  padding: 5px 7px;
+}
+
+.body-tasks {
+  padding: 0 20px;
+}
+
+.body-tasks .tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.body-tasks .add-task-btn {
   color: var(--color-light);
   background-color: var(--color-dark);
   width: 100%;
@@ -82,14 +206,7 @@ button {
   margin: 15px 0;
 }
 
-.body .tasks {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow: hidden;
-}
-
-.body .tasks .task {
+.body-tasks .tasks .task {
   position: relative;
   padding: var(--padding-primary);
   background-color: #fff;
@@ -101,7 +218,7 @@ button {
   opacity: 0.7;
 }
 
-.body .tasks .task .task-content {
+.body-tasks .tasks .task .task-content {
   padding: var(--padding-primary);
   border-radius: var(--rounded-primary);
   -webkit-border-radius: var(--rounded-primary);
@@ -115,13 +232,12 @@ button {
   -o-transition: var(--trans-primary);
 }
 
-.body .tasks .task:hover .task-content {
+.body-tasks .tasks .task:hover .task-content {
   scale: 0.8;
-  translate: -50px;
-  /* color: var(--color-light); */
+  translate: -1.8rem;
 }
 
-.body .tasks .task::before {
+.body-tasks .tasks .task::before {
   content: "";
   position: absolute;
   top: 0;
@@ -142,11 +258,11 @@ button {
   -o-transition: var(--trans-primary);
 }
 
-.body .tasks .task:hover::before {
+.body-tasks .tasks .task:hover::before {
   opacity: 0.1;
 }
 
-.body .tasks .task .task-btns {
+.body-tasks .tasks .task .task-btns {
   position: absolute;
   top: 6px;
   right: -100px;
@@ -160,12 +276,12 @@ button {
   -o-transition: var(--trans-primary);
 }
 
-.body .tasks .task:hover .task-btns {
+.body-tasks .tasks .task:hover .task-btns {
   right: 15px;
   opacity: 1;
 }
 
-.body .tasks .task .task-btns > button {
+.body-tasks .tasks .task .task-btns > button {
   background-color: var(--color-primary);
   color: var(--color-light);
   width: 30px;
@@ -180,6 +296,96 @@ button {
   -o-border-radius: var(--rounded-primary);
 }
 
-.body .tasks .task .task-btns svg {
+.body-tasks .tasks .task .task-btns svg {
   font-size: 12px !important;
+}
+
+.new-task,
+.review-task {
+  background-color: var(--color-light);
+  padding: var(--padding-secondary);
+  border-radius: var(--rounded-primary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30rem;
+  height: fit-content;
+  z-index: 9999;
+  -webkit-border-radius: var(--rounded-primary);
+  -moz-border-radius: var(--rounded-primary);
+  -ms-border-radius: var(--rounded-primary);
+  -o-border-radius: var(--rounded-primary);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+.new-task .content,
+.review-task .content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.new-task .content input,
+.review-task .content input {
+  padding: var(--padding-primary);
+  outline: none;
+  border: 0;
+  border-radius: var(--rounded-primary);
+  -webkit-border-radius: var(--rounded-primary);
+  -moz-border-radius: var(--rounded-primary);
+  -ms-border-radius: var(--rounded-primary);
+  -o-border-radius: var(--rounded-primary);
+}
+
+.new-task .content textarea,
+.review-task .content textarea {
+  padding: var(--padding-primary);
+  border-radius: var(--rounded-primary);
+  outline: none;
+  border: 0;
+  resize: vertical;
+  min-height: 50px;
+  height: 70px;
+  max-height: 130px;
+  -webkit-border-radius: var(--rounded-primary);
+  -moz-border-radius: var(--rounded-primary);
+  -ms-border-radius: var(--rounded-primary);
+  -o-border-radius: var(--rounded-primary);
+}
+
+.new-task .date,
+.review-task .date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem !important;
+}
+
+.new-task .date .start_date_box,
+.new-task .date .end_date_box,
+.review-task .date .start_date_box,
+.review-task .date .end_date_box {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.6rem !important;
+}
+
+.new-task .create-task,
+.review-task .save-changes {
+  background-color: var(--color-secondary);
+  color: #fff;
+  padding: var(--padding-primary);
+  border-radius: var(--rounded-primary);
+  -webkit-border-radius: var(--rounded-primary);
+  -moz-border-radius: var(--rounded-primary);
+  -ms-border-radius: var(--roundedprimary);
+  -o-border-radius: var(--rounded-primary);
+}
+[contenteditable] {
+  outline: none;
 }
