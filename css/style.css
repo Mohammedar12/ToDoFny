@@ -2,9 +2,9 @@
 
 :root {
   --color-primary: #8847fd;
-  --color-dark: #22153b;
-  --color-light: #eee;
-  --color-secondary: #9ba3eb;
+  --color-secondary: #eaf1fd;
+  --color-dark: #00102a;
+  --color-light: #f4fbff;
   --rounded-primary: 0.3rem;
   --padding-primary: 0.4rem 0.5rem;
   --padding-secondary: 0.8rem 1.2rem;
@@ -76,7 +76,6 @@ button {
   background-color: var(--color-primary);
   padding: var(--padding-primary);
   width: 200px;
-  height: 100vh;
 }
 
 .side-bar .pages nav,
@@ -102,7 +101,7 @@ button {
 
 .main-content header .page-title {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--color-dark);
   padding: var(--padding-secondary);
   letter-spacing: 3.2px;
@@ -110,7 +109,7 @@ button {
 
 .main-content header .page-desc {
   font-weight: 600;
-  font-size: 17px;
+  font-size: 14px;
   color: #444;
   margin: 0 30px 0;
   line-height: 1.6;
@@ -127,13 +126,13 @@ button {
   width: 100%;
 }
 
-.card-of-tasks {
-  background-color: var(--color-light);
+.card_ {
+  background-color: var(--color-secondary);
   position: relative;
   width: 300px;
-  height: 300px;
-  overflow: auto;
-  /* padding: 15px 20px; */
+  height: 320px;
+  overflow: hidden;
+  padding-bottom: 20px;
   border-radius: var(--rounded-primary);
   -webkit-border-radius: var(--rounded-primary);
   -moz-border-radius: var(--rounded-primary);
@@ -141,11 +140,11 @@ button {
   -o-border-radius: var(--rounded-primary);
 }
 
-.header-tasks {
+.header_card {
   text-align: center;
 }
 
-.header-tasks .title {
+.header_card .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -155,47 +154,133 @@ button {
   background-color: var(--color-primary);
 }
 
-.header-tasks .title span {
-  background-color: var(--color-dark);
-  color: var(--color-light);
-  width: 25px;
-  height: 25px;
-  padding: 3.4px 9px;
-  border-radius: var(--rounded-primary);
-  -webkit-border-radius: var(--rounded-primary);
-  -moz-border-radius: var(--rounded-primary);
-  -ms-border-radius: var(--rounded-primary);
-  -o-border-radius: var(--rounded-primary);
-  font-size: 16px;
+.header_card .content .title {
+  margin: 0;
 }
 
-.header-tasks .add-task-btn {
-  color: var(--color-light);
-  background-color: var(--color-dark);
-  width: auto;
+.header_card .content li {
+  width: 25px;
+  height: 25px;
   font-size: 16px;
+  background-color: var(--color-light);
+  border-radius: var(--rounded-primary);
+}
+
+.header_card .content .num-of-tasks {
+  background-color: var(--color-dark);
+}
+
+.header_card .content .num-of-tasks span {
+  color: var(--color-light);
+  padding: 1.3px 8px;
   border-radius: var(--rounded-primary);
   -webkit-border-radius: var(--rounded-primary);
   -moz-border-radius: var(--rounded-primary);
   -ms-border-radius: var(--rounded-primary);
   -o-border-radius: var(--rounded-primary);
-  padding: 5px 7px;
+}
+
+.header_card .add-task-btn {
+  width: 25px;
+  height: 25px;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  border-radius: var(--rounded-primary);
+  -webkit-border-radius: var(--rounded-primary);
+  -moz-border-radius: var(--rounded-primary);
+  -ms-border-radius: var(--rounded-primary);
+  -o-border-radius: var(--rounded-primary);
+}
+
+.settings_btn {
+  padding: 0 8px;
+  background-color: transparent;
+}
+
+.header_card .card_settings {
+  position: relative;
+}
+
+.header_card .settings {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  right: 0;
+  background-color: var(--color-dark);
+  padding: 10px 15px !important;
+  border-radius: var(--rounded-primary);
+  -webkit-border-radius: var(--rounded-primary);
+  -moz-border-radius: var(--rounded-primary);
+  -ms-border-radius: var(--rounded-primary);
+  -o-border-radius: var(--rounded-primary);
+  opacity: 0;
+  z-index: -10;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.settings_btn:focus + .settings {
+  opacity: 1;
+  z-index: 99;
+}
+
+.header_card .settings .setting {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.setting button {
+  font-size: 13px !important;
+  width: 100%;
 }
 
 .body-tasks {
   padding: 0 20px;
+  margin-top: 20px;
+  max-height: 245px;
+  overflow: auto;
+}
+
+.body-tasks::-webkit-scrollbar {
+  width: 5px;
+ 
+}
+
+.body-tasks::-webkit-scrollbar-track {
+  background-color: var(--color-light);
+  border-radius: var(--rounded-primary);
+  -webkit-border-radius: var(--rounded-primary);
+  -moz-border-radius: var(--rounded-primary);
+  -ms-border-radius: var(--rounded-primary);
+  -o-border-radius: var(--rounded-primary);
+}
+
+.body-tasks::-webkit-scrollbar-thumb  {
+  background-color: var(--color-primary);
+  border-radius: var(--rounded-primary);
+  -webkit-border-radius: var(--rounded-primary);
+  -moz-border-radius: var(--rounded-primary);
+  -ms-border-radius: var(--rounded-primary);
+  -o-border-radius: var(--rounded-primary);
 }
 
 .body-tasks .tasks {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  overflow: hidden;
 }
 
 .body-tasks .add-task-btn {
-  color: var(--color-light);
-  background-color: var(--color-dark);
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  border: 3px solid var(--color-dark);
   width: 100%;
   border-radius: var(--rounded-primary);
   -webkit-border-radius: var(--rounded-primary);
@@ -215,7 +300,11 @@ button {
   -moz-border-radius: var(--rounded-primary);
   -ms-border-radius: var(--rounded-primary);
   -o-border-radius: var(--rounded-primary);
-  opacity: 0.7;
+  overflow: hidden;
+}
+
+.body-tasks .tasks .task:last-of-type {
+  margin-bottom: 30px;
 }
 
 .body-tasks .tasks .task .task-content {

@@ -95,8 +95,8 @@ function addToPage(arryTaks) {
                     </div>
 
                     <div class="task-btns">
-                        <button class="edit"><i class="fa-solid fa-eye"></i></button>
                         <button class="del" id="deletTask"><i class="fa-solid fa-trash"></i></button>
+                        <button class="edit"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                         </div>
                         </div>
                               `;
@@ -194,3 +194,5 @@ document.addEventListener("keydown", (e) =>
 //   taskTitle = taskDev.title;
 
 // }
+
+deletTaskBtn()

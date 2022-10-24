@@ -46,7 +46,7 @@
             </div>
         </nav>
         <main class="main">
-            <div class="side-bar d-none">
+            <div class="side-bar">
                 <div class="header-bar">
                     <div class="personal-info"></div>
                 </div>
@@ -90,23 +90,43 @@
                     </div>
                 </header>
                 <div class="container">
-                    <div class="add-tasks card-of-tasks">
-                        <div class="header-tasks">
-                            <h5 class="title">
-                                To Do &#128195;
-                                <div class="d-flex align-items-center gap-2">
-                                    <div class="num-of-tasks">
-                                        <span >3</span>
-                                    </div>
-                                    <button class="add-task-btn" id="addNewTask" data-id="to-do"><i
-                                            class="fa-solid fa-plus"></i></button>
-                                </div>
-                            </h5>
+                    <div class="add-tasks card_">
+                        <div class="header-tasks  header_card">
+                            <div class="content">
+                                <h5 class="title">To Do &#128195;</h5>
+                                <ul class="list d-flex align-items-center gap-2">
+                                    <li class="num-of-tasks">
+                                        <span>3</span>
+                                    </li>
+                                    <li>
+                                        <button class="add-task-btn" id="addNewTask" data-id="to-do">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </li>
+                                    <li tabindex="-1" class="card_settings">
+                                        <button class="settings_btn">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                        <ul class="settings">
+                                            <li class="setting">
+                                                <button class="btn">Edit Name</button>
+                                            </li>
+                                            <li class="setting">
+                                                <button class="btn">Color</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
 
                         </div>
                         <div class="body-tasks">
                             <!-- <div class="empty">No Tasks Here !</div> -->
                             <div class="tasks">
+                                <button class="add-task-btn work-task" id="addNewTask" data-id="to-do">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
                                 <div class="task" id="task">
                                     <div class="task-content">
                                         Play Overwatch
@@ -117,34 +137,139 @@
                                         <button class="del" id="deletTask"><i class="fa-solid fa-trash"></i></button>
                                     </div>
                                 </div>
-                                <button class="add-task-btn work-task" id="addNewTask" data-id="to-do"><i
-                                        class="fa-solid fa-plus"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="task-on-prog card-of-tasks">
-                        <div class="header-tasks">
-                            <h5 class="title">Workin On &#128104;&#8205;&#128187;<span class="num-of-tasks">3</span>
-                            </h5>
-                            <button class="add-task-btn work-task" id="addNewTask" data-id="working-on"><i
-                                    class="fa-solid fa-plus"></i></button>
-                        </div>
-                        <div class="body-tasks">
-                            <div class="tasks">
+                                <div class="task" id="task">
+                                    <div class="task-content">
+                                        Play Overwatch
+                                    </div>
+
+                                    <div class="task-btns">
+                                        <button class="edit"><i class="fa-solid fa-eye"></i></button>
+                                        <button class="del" id="deletTask"><i class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="task" id="task">
+                                    <div class="task-content">
+                                        Play Overwatch
+                                    </div>
+
+                                    <div class="task-btns">
+                                        <button class="edit"><i class="fa-solid fa-eye"></i></button>
+                                        <button class="del" id="deletTask"><i class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                </div>
+
 
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="task-complated card-of-tasks">
-                        <div class="header-tasks">
-                            <h5 class="title">Done &#9989;<span class="num-of-tasks">3</span></h5>
-                            <button class="add-task-btn" id="addNewTask"><i class="fa-solid fa-plus"></i></button>
+                    <div class="add-tasks card_">
+                        <div class="header-tasks  header_card">
+                            <div class="content">
+                                <h5 class="title">To Do &#128195;</h5>
+                                <ul class="list d-flex align-items-center gap-2">
+                                    <li class="num-of-tasks">
+                                        <span>3</span>
+                                    </li>
+                                    <li>
+                                        <button class="add-task-btn" id="addNewTask" data-id="to-do">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </li>
+                                    <li tabindex="-1" class="card_settings">
+                                        <button class="settings_btn">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                        <ul class="settings">
+                                            <li class="setting">
+                                                <button class="btn">Edit Name</button>
+                                            </li>
+                                            <li class="setting">
+                                                <button class="btn">Color</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+
                         </div>
                         <div class="body-tasks">
+                            <!-- <div class="empty">No Tasks Here !</div> -->
                             <div class="tasks">
+                                <button class="add-task-btn work-task" id="addNewTask" data-id="to-do">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+                    <div class="add-tasks card_">
+                        <div class="header-tasks header_card">
+                            <div class="content">
+                                <h5 class="title">To Do &#128195;</h5>
+                                <ul class="list d-flex align-items-center gap-2">
+                                    <li class="num-of-tasks">
+                                        <span>3</span>
+                                    </li>
+                                    <li>
+                                        <button class="add-task-btn" id="addNewTask" data-id="to-do">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </li>
+                                    <li tabindex="-1" class="card_settings">
+                                        <button class="settings_btn">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                        <ul class="settings">
+                                            <li class="setting">
+                                                <button class="btn">Edit Name</button>
+                                            </li>
+                                            <li class="setting">
+                                                <button class="btn">Color</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="body-tasks">
+                            <!-- <div class="empty">No Tasks Here !</div> -->
+                            <div class="tasks">
+                                <button class="add-task-btn work-task" id="addNewTask" data-id="to-do">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="note card_">
+                        <div class="header-tasks  header_card">
+                            <div class="content">
+                                <h5 class="title">Notes &#128195;</h5>
+                                <ul class="list d-flex align-items-center gap-2">
+                                    <li tabindex="-1" class="card_settings">
+                                        <button class="settings_btn">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                        <ul class="settings">
+                                            <li class="setting">
+                                                <button class="btn">Edit Name</button>
+                                            </li>
+                                            <li class="setting">
+                                                <button class="btn">Color</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="body-tasks body_notes">
+                            <!-- <div class="empty">No Tasks Here !</div> -->
+                            <div class="notes" spellcheck="true" contenteditable="true">
+                                write here..
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

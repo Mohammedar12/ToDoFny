@@ -1,0 +1,33 @@
+1. Load the vanillaEmojiPicker.js on the HTML page.
+<script src="vanillaEmojiPicker.js"></script>
+2. Initialize the emoji picker and determine the trigger element as follows:
+
+new EmojiPicker({
+    trigger: [
+        {
+          selector: '.trigger',
+          insertInto: ['.demo'] // '.selector' can be used without array
+        },
+    ],
+});
+4. Determine whether to show a close button inside the emoji picker.
+
+new EmojiPicker({
+    trigger: [
+        {
+          selector: '.trigger',
+          insertInto: ['.demo'] // '.selector' can be used without array
+        },
+    ],
+    closeButton: true,
+});
+5. Set the background color of the buttons.
+new EmojiPicker({
+    trigger: [
+        {
+          selector: '.trigger',
+          insertInto: ['.demo'] // '.selector' can be used without array
+        },
+    ],
+    specialButtons: 'green',
+});
